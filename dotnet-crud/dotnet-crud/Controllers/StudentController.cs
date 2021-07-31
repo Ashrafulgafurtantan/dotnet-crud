@@ -20,30 +20,28 @@ namespace dotnet_crud.Controllers
         }
 
 
-        [HttpPost("api/students")]
+        [HttpGet("api/students")]
         public IActionResult GetAll()
         {
             return Ok(_studentRepository.GetAll());
         }
 
 
-        [HttpPost("api/students")]
+        [HttpPost("api/students/id")]
         public IActionResult GetById(int id)
         {
             var registered_student = _studentRepository.GetById(id);
             return Ok(registered_student);
         }
 
-        [HttpPost("api/student/update")]
+        [HttpPut("api/student/update")]
         public IActionResult Update([FromBody] Student student)
         {
             var updated_student = _studentRepository.UpdateUser(student);
             return Ok(updated_student);
         }
 
-
-
-        [HttpPost("api/student/delete")]
+        [HttpDelete("api/student/delete")]
         public IActionResult DeleteUser([FromBody] Student student)
         {
             var updated_student = _studentRepository.DeleteUser(student);
