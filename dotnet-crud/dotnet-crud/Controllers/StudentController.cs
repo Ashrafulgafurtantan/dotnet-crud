@@ -27,7 +27,7 @@ namespace dotnet_crud.Controllers
         }
 
 
-        [HttpPost("api/students/id")]
+        [HttpGet("api/students/id")]
         public IActionResult GetById(int id)
         {
             var registered_student = _studentRepository.GetById(id);
