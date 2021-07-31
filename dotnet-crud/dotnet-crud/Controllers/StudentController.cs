@@ -42,10 +42,16 @@ namespace dotnet_crud.Controllers
         }
 
         [HttpDelete("api/student/delete")]
-        public IActionResult DeleteUser([FromBody] Student student)
+        public IActionResult DeleteUser(int id)
         {
-            var updated_student = _studentRepository.DeleteUser(student);
-            return Ok(updated_student);
+            var student = _studentRepository.GetById(id);
+            if(student != null)
+            {
+                var updated_student = _studentRepository.DeleteUser(student);
+                return Ok(updated_student);
+            }
+            return Ok(0);
+           
         }
 
 
