@@ -34,5 +34,16 @@ namespace dotnet_crud.Controllers
             return Ok(registered_student);
         }
 
+        [HttpPost("api/student/update")]
+        public IActionResult Update([FromBody] Student student)
+        {
+            var updated_student = _studentRepository.UpdateUser(student);
+            return Ok(updated_student);
+        }
+
+
+
+
+
     }
 }
