@@ -29,6 +29,20 @@ namespace dotnet_crud.Repository
             
         }
 
+        public Student UpdateUser(Student student)
+        {
+            DatabaseContext.Students.Update(student);
+            DatabaseContext.SaveChanges();
+            return student;
+        }
+
+        public int DeleteUser(Student student)
+        {
+            DatabaseContext.Students.Remove(student);
+            return DatabaseContext.SaveChanges();
+            
+        }
+
 
 
     }
